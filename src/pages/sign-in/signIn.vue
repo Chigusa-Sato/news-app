@@ -1,13 +1,11 @@
-<script setup>
-import TopNavbar from '../../components/TopNavbar.vue';
-</script>
-
 <template>
   <TopNavbar />
 </template>
 <style></style>
 
 <script>
+import TopNavbar from '../../components/TopNavbar.vue';
+
 export default {
   components: {
     TopNavbar,
