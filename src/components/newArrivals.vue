@@ -3,6 +3,7 @@
     <div class="wrapper" v-for="(newbook, index) in newArrivals" :key="index">
       <div class="content">
         <h1>{{ newbook.title }}</h1>
+        <span class="button" @click="addToCart">ADD</span>
         <img :src="newbook.image" alt="" />
         <p>${{ newbook.price }}</p>
         <p>{{ newbook.author }}</p>
@@ -28,15 +29,11 @@ export default defineComponent({
     const catalogStore = useCatalog();
     const newArrivals = computed(() => catalogStore.newArrivals);
 
-    const fetchNewArrivals = () => {
-      catalogStore.fetchNewArrivals();
-    };
-    return { newArrivals, fetchNewArrivals };
-  },
-  //createdをvue3で書くとどうなるの・・・？？
-  created() {
-    //テンプレートが作成されたら、このアクションを呼び出します。
-    this.fetchNewArrivals();
+    //createdはsetup関数内に記載
+    catalogStore.fetchNewArrivals();
+    return { newArrivals };
+
+    //addToCart関数を追記
   },
 });
 </script>
@@ -52,5 +49,16 @@ export default defineComponent({
 .wrapper {
   background: rgb(238, 238, 238);
   width: 48%;
+}
+.button {
+  display: block;
+  background: rgb(93, 93, 255);
+  opacity: 80%;
+  border-radius: 5%;
+  width: 80px;
+  height: 30px;
+  font-weight: bold;
+  font-size: large;
+  margin: auto;
 }
 </style>
