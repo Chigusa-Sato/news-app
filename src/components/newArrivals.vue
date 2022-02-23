@@ -1,13 +1,17 @@
 <template>
   <div class="container">
-    <div class="wrapper" v-for="(newbook, index) in newArrivals" :key="index">
+    {{ newArrivals }}
+    <div
+      class="wrapper"
+      v-for="(video, index) in newArrivals.items"
+      :key="index"
+    >
       <div class="content">
-        <h1>{{ newbook.title }}</h1>
-        <span class="button" @click="addToCart">ADD</span>
-        <img :src="newbook.image" alt="" />
-        <p>${{ newbook.price }}</p>
-        <p>{{ newbook.author }}</p>
-        <p>{{ newbook.description }}</p>
+        <h1>{{ video }}</h1>
+        <span class="button" @click="addToCart">♡</span>
+        <!-- <img :src="video.snippet.thumbnails.default.url" alt="" /> -->
+        <!-- <p>{{ video.snippet.title }}</p>
+        <p>{{ video.snippet.channelTitle }}</p> -->
       </div>
     </div>
   </div>
@@ -23,6 +27,7 @@ import {
 } from 'vue';
 // import { mapState, mapActions } from 'pinia';
 import { useCatalog } from '../stores/catalog.js';
+import axios from 'axios';
 
 export default defineComponent({
   setup() {
@@ -35,6 +40,20 @@ export default defineComponent({
 
     //addToCart関数を追記
   },
+  // mounted() {
+  //   console.log(this.newArrivals);
+  //   axios
+  //     .get('https://www.googleapis.com/youtube/v3/search', {
+  //       params: {
+  //         q: 'naomi',
+  //         part: 'snippet',
+  //         type: 'video',
+  //         maxResults: '20', // 最大検索数
+  //         key: 'AIzaSyDvvBHFjcAHzSmL0TMQx8l54Tg5T70Q9Xk',
+  //       },
+  //     })
+  //     .then((res) => console.log(res));
+  // },
 });
 </script>
 

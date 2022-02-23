@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import axios from 'axios';
 
 export const useCatalog = defineStore('catalog-store', {
   state: () => {
@@ -21,16 +22,28 @@ export const useCatalog = defineStore('catalog-store', {
   actions: {
     async fetchNewArrivals() {
       this.fetching = true;
-      const response = await fetch('../../public/data/new-arrivals.json');
+      //const response = await fetch('../../public/data/new-arrivals.json');
       try {
-        const result = await response.json();
-        this.newArrivals = result.books;
+        const searchVideos = await axios.get(
+          'https://www.googleapis.com/youtube/v3/search',
+          {
+            params: {
+              q: 'naomi',
+              part: 'snippet',
+              type: 'video',
+              maxResults: '20', // 最大検索数
+              key: 'AIzaSyDvvBHFjcAHzSmL0TMQx8l54Tg5T70Q9Xk',
+            },
+          }
+        );
+        this.newArrivals = searchVideos.data;
+        console.log(searchVideos.data)
       } catch (err) {
         this.newArrivals = [];
         console.error('Error loading new arrivals:', err);
         return err;
       }
-      this.fetching = false;
+      // this.fetching = false;
     },
   },
 });
