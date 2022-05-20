@@ -1,14 +1,37 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-</script>
-
 <template>
-  <router-view></router-view>
+  <div class="h-full">
+    <TopNavbar class="min-h-1/6" />
+    <div class="min-h-4/6 flex justify-center">
+      <router-view></router-view>
+    </div>
+    <!-- <Footer class="min-h-1/6" /> -->
+  </div>
 </template>
+
+<script lang="ts">
+import {
+  computed,
+  defineComponent,
+  reactive,
+  watchEffect,
+  onMounted,
+} from 'vue';
+import TopNavbar from './components/TopNavbar.vue';
+import Footer from './components/Footer.vue';
+
+export default defineComponent({
+  components: {
+    TopNavbar,
+    Footer,
+  },
+  setup() {},
+});
+</script>
 
 <style>
 #app {
+  /* width: 1040px; */
+  height: auto;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;

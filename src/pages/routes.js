@@ -1,20 +1,26 @@
 import { createRouter } from 'vue-router';
-import Homepage from './home/Home.vue';
-import SignIn from './sign-in/SignIn.vue';
-import Cart from './cart/Cart.vue';
+import News from '../pages/news.vue';
+import FavoriteTopic from '../pages/favorite.vue';
+import TimeLine from '../pages/timeLine.vue';
+import Comments from '../pages/comments.vue';
 
 const routes = [
   {
     path: '/',
-    component: Homepage,
+    component: News,
   },
   {
-    path: '/sign-in/',
-    component: SignIn,
+    path: '/timeLine/',
+    component: TimeLine,
   },
   {
-    path: '/cart/',
-    component: Cart,
+    path: '/favorite/',
+    component: FavoriteTopic,
+  },
+  {
+    path: '/comments/:topicId',
+    name: 'comments',
+    component: Comments,
   },
 ];
 
