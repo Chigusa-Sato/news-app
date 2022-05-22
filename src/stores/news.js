@@ -22,7 +22,9 @@ export const useNews = defineStore('news-store', {
 
   actions: {
     async fetchNews() {
-      const APIKEY = import.meta.env.VUE_APP_API_URL;
+      const APIKEY = import.meta.env.VITE_APP_API_KEY;
+      // const APIKEY = 'b92c6cc78f9f44bf8140f5daa2500273';
+      // console.log(import.meta.env, import.meta.env.VITE_APP_API_KEY, APIKEY);
       this.fetching = true;
       try {
         const res = await axios.get(
