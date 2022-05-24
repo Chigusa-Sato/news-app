@@ -1,5 +1,13 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
+function getUniqueStr(myStrong) {
+  var strong = 1000;
+  if (myStrong) strong = myStrong;
+  return (
+    new Date().getTime().toString(16) +
+    Math.floor(strong * Math.random()).toString(16)
+  );
+}
 
 export const useNews = defineStore('news-store', {
   state: () => {
@@ -19,12 +27,9 @@ export const useNews = defineStore('news-store', {
       return state.fetching;
     },
   },
-
   actions: {
     async fetchNews() {
       const APIKEY = import.meta.env.VITE_APP_API_KEY;
-      // const APIKEY = 'b92c6cc78f9f44bf8140f5daa2500273';
-      // console.log(import.meta.env, import.meta.env.VITE_APP_API_KEY, APIKEY);
       this.fetching = true;
       try {
         const res = await axios.get(
@@ -32,14 +37,6 @@ export const useNews = defineStore('news-store', {
             this.category +
             `&apiKey=${APIKEY}`
         );
-        function getUniqueStr(myStrong) {
-          var strong = 1000;
-          if (myStrong) strong = myStrong;
-          return (
-            new Date().getTime().toString(16) +
-            Math.floor(strong * Math.random()).toString(16)
-          );
-        }
         const articles = res.data.articles.map((articles) => {
           return { ...articles, id: getUniqueStr() };
         });
@@ -55,6 +52,30 @@ export const useNews = defineStore('news-store', {
     fetchNews_detail(topicId) {
       const newsDetail = this.News.find((topic) => topic.id === topicId);
       return newsDetail;
+    },
+    async searchNews(keyword) {
+      const APIKEY = import.meta.env.VITE_APP_API_KEY;
+      this.fetching = true;
+      try {
+        const res = await axios.get(
+          'https://newsapi.org/v2/top-headlines?country=jp' +
+            `&q=${keyword}` +
+            `&apiKey=${APIKEY}`
+        );
+
+        const articles = res.data.articles.map((articles) => {
+          return { ...articles, id: getUniqueStr() };
+        });
+
+        console.log('結果', articles);
+
+        this.News = articles;
+      } catch (err) {
+        this.News = [];
+        console.error('Error loading new arrivals:', err);
+        return err;
+      }
+      this.fetching = false;
     },
   },
 });

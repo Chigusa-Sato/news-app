@@ -1,8 +1,8 @@
 import { createRouter } from 'vue-router';
-import News from '../pages/news.vue';
-import FavoriteTopic from '../pages/favorite.vue';
-import TimeLine from '../pages/timeLine.vue';
-import Comments from '../pages/comments.vue';
+import News from './pages/news.vue';
+import FavoriteTopic from './pages/favorite.vue';
+import TimeLine from './pages/timeLine.vue';
+import Comments from './pages/comments.vue';
 
 const routes = [
   {

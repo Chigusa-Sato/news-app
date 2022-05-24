@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import { createWebHistory } from 'vue-router';
 import { createPinia } from 'pinia';
 
-import createRouter from './pages/routes.js';
+import createRouter from './routes.js';
 import App from './App.vue';
 import './index.css';
 
