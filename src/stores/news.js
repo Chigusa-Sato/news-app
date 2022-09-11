@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
 function getUniqueStr(myStrong) {
-  var strong = 1000;
+  let strong = 1000;
   if (myStrong) strong = myStrong;
   return (
     new Date().getTime().toString(16) +

@@ -55,7 +55,6 @@ export default defineComponent({
   setup() {
     //ルーティング周り
     const router = useRouter();
-    // const route = useRoute();
     const goToCommentPage = (id) => {
       router.push({ name: 'comments', params: { topicId: id } });
     };
