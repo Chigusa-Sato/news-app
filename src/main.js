@@ -5,7 +5,7 @@ import { createPinia } from 'pinia';
 import createRouter from './routes.js';
 import App from './App.vue';
 import './index.css';
-
+import 'tailwindcss/tailwind.css';
 const store = createPinia();
 const router = createRouter(createWebHistory());
 const app = createApp(App);

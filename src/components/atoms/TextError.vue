@@ -1,17 +1,5 @@
 <template>
-  <button
-    class="
-      bg-orange-500
-      hover:bg-orange-600
-      text-white
-      px-4
-      py-2
-      rounded-lg
-      shadow-lg
-    "
-  >
-    ボタンだよ
-  </button>
+  <p class="bg-orange-500 text-red-200">ボタンだよ</p>
   <!-- <button class="btn_red">ボタンだよ</button> -->
 </template>
 

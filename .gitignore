@@ -110,3 +110,7 @@ dist
 
 # api keys
 .env
+
+
+#storybook
+storybook-static/
