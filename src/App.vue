@@ -1,7 +1,7 @@
 <template>
   <div class="h-full">
-    <TopNavbar class="min-h-1/6" />
-    <div class="min-h-4/6 flex justify-center p-4">
+    <TopNavbar class="min-h-1/6 fixed inset-0" />
+    <div class="min-h-4/6 flex justify-center p-4 mt-24">
       <router-view></router-view>
     </div>
     <!-- <Footer class="min-h-1/6" /> -->
@@ -17,7 +17,7 @@ import {
   onMounted,
 } from 'vue';
 import TopNavbar from './components/organisms/TopNavbar.vue';
-import Footer from './components/Footer.vue';
+import Footer from './components/templates/Footer.vue';
 
 export default defineComponent({
   components: {
