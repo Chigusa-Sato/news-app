@@ -15,14 +15,12 @@
       <div class="bg-white w-1/2 flex flex-col justify-center items-center">
         <input
           type="text"
-          class="w-3/4 h-3/4 border-2 border-blue-300 rounded"
+          class="w-4/5 h-4/5 border-2 border-blue-300 rounded"
           placeholder="please write here"
           v-model="comments"
         />
         <div class="flex justify-end">
-          <button class="bg-blue-200 rounded px-3 py-1" @click="submitComments">
-            投稿
-          </button>
+          <BaseButton label="投稿" color="light-blue" @click="submitComments" />
         </div>
       </div>
     </div>
@@ -38,9 +36,11 @@ import { useRoute, useRouter } from 'vue-router';
 import { useNews } from '../../stores/news';
 import { useTimeline } from '../../stores/timeline';
 import TextError from '../atoms/TextError.vue';
+import BaseButton from '../atoms/BaseButton.vue';
 export default defineComponent({
   components: {
     TextError,
+    BaseButton,
   },
   setup() {
     //ルーティング周り

@@ -15,12 +15,13 @@
             :text="comment.article.description"
             class="h-56bg-red-100 line_clamp"
           />
-          <BaseButton
+
+          <!-- <BaseButton
             color="blue"
             label="続きを見る"
             @click-event="handleClick('handleClick_favorite')"
             class="w-28"
-          ></BaseButton>
+          ></BaseButton> -->
         </div>
         <!-- コメント -->
         <div
@@ -66,6 +67,6 @@ export default defineComponent({
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 9;
+  -webkit-line-clamp: 10;
 }
 </style>
