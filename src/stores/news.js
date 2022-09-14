@@ -38,6 +38,7 @@ export const useNews = defineStore('news-store', {
             `&apiKey=${APIKEY}`
         );
         const articles = res.data.articles.map((articles) => {
+          articles.urlToImage === undefined ? '' : articles.urlToImage;
           return { ...articles, id: getUniqueStr() };
         });
 
@@ -64,6 +65,7 @@ export const useNews = defineStore('news-store', {
         );
 
         const articles = res.data.articles.map((articles) => {
+          articles.urlToImage === undefined ? '' : articles.urlToImage;
           return { ...articles, id: getUniqueStr() };
         });
 

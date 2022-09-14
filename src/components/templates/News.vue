@@ -1,8 +1,9 @@
 <template>
   <div class="container">
     <div class="flex justify-center">
-      <div class="flex m-4">
+      <div class="flex mb-4">
         <search-form
+          class=""
           v-model="keyword"
           value="keyword"
           color="gray"
@@ -11,7 +12,7 @@
         />
       </div>
     </div>
-    <div class="flex flex-wrap items-center justify-center">
+    <div class="flex flex-wrap items-center justify-center gap-4">
       <div v-for="topic in news" :key="topic.publishedAt" class="">
         <Card
           :content="topic"
@@ -24,7 +25,7 @@
       class="flex flex-wrap items-center justify-center"
       v-show="!news.length"
     >
-      <p>検索結果はありません</p>
+      <TextError text="検索結果はありません" />
     </div>
   </div>
 </template>
@@ -34,6 +35,7 @@ import { computed, defineComponent, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useNews } from '../../stores/news';
 import { useFavorite } from '../../stores/favorite';
+import TextError from '../atoms/TextError.vue';
 import BaseButton from '../atoms/BaseButton.vue';
 import BaseInput from '../atoms/BaseInput.vue';
 import SearchForm from '../morecules/SearchForm.vue';
@@ -44,6 +46,7 @@ export default defineComponent({
     BaseInput,
     SearchForm,
     Card,
+    TextError,
   },
   setup() {
     //ルーティング周り

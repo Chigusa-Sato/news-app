@@ -1,5 +1,5 @@
 <template>
-  <p class="text-xl font-bold" :class="textColor">{{ text }}</p>
+  <p class="text-red font-bold" :class="textColor">※{{ text }}</p>
 </template>
 
 <script>
@@ -8,20 +8,19 @@ import { defineComponent, computed, reactive } from 'vue';
 export default defineComponent({
   props: {
     text: {
-      required: true,
       type: String,
       default: '',
     },
     color: {
       type: String,
-      default: 'white',
+      default: 'black',
     },
   },
   setup(props, { emit }) {
     props = reactive(props);
     const textColor = computed(() => {
-      if (props.color === 'white') {
-        return 'text-white';
+      if (props.color === 'red') {
+        return 'text-red-700';
       } else {
         return 'text-gray-900';
       }

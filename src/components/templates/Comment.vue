@@ -1,6 +1,9 @@
 <template>
   <div class="container min-h-screen flex mt-16 justify-center">
-    <div class="bg-gray-100 w-4/5 h-2/3 flex p-10 gap-10">
+    <div
+      class="bg-gray-100 w-4/5 h-2/3 flex p-10 gap-10"
+      v-if="newsDetail !== null"
+    >
       <div class="bg-white w-1/2">
         <img :src="newsDetail.urlToImage" />
         <a class="block font-bold" :href="newsDetail.url">{{
@@ -23,15 +26,22 @@
         </div>
       </div>
     </div>
+    <div v-else>
+      <TextError text="対象の記事が見つかりません" />
+    </div>
   </div>
 </template>
 
 <script>
 import { defineComponent, computed, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { useNews } from '../stores/news';
-import { useTimeline } from '../stores/timeline';
+import { useNews } from '../../stores/news';
+import { useTimeline } from '../../stores/timeline';
+import TextError from '../atoms/TextError.vue';
 export default defineComponent({
+  components: {
+    TextError,
+  },
   setup() {
     //ルーティング周り
     const route = useRoute();
@@ -39,7 +49,12 @@ export default defineComponent({
     let id = route.params.topicId;
     //idにデータ紐づいたニュース情報を取得
     const newsStore = useNews();
-    const newsDetail = computed(() => newsStore.fetchNews_detail(id));
+
+    console.log(id);
+    let newsDetail = null;
+    if (newsStore.News.length) {
+      newsDetail = computed(() => newsStore.fetchNews_detail(id));
+    }
     //コメントの投稿
     let comments = ref('');
     const timelineStore = useTimeline();

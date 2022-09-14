@@ -1,7 +1,7 @@
 <template>
   <div class="h-full">
     <TopNavbar class="min-h-1/6" />
-    <div class="min-h-4/6 flex justify-center">
+    <div class="min-h-4/6 flex justify-center p-4">
       <router-view></router-view>
     </div>
     <!-- <Footer class="min-h-1/6" /> -->

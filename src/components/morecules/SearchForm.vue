@@ -1,18 +1,16 @@
 <template>
-  <div>
-    <base-input
-      placeholder="検索ワードを入力"
-      :value="modelValue"
-      :rounded="false"
-      @input="handleInput"
-    />
-    <base-button
-      label="検索"
-      :color="color"
-      :rounded="false"
-      @click-event="handleClick"
-    />
-  </div>
+  <base-input
+    placeholder="検索ワードを入力"
+    :value="modelValue"
+    :rounded="false"
+    @input="handleInput"
+  />
+  <base-button
+    label="検索"
+    :color="color"
+    :rounded="false"
+    @click-event="handleClick"
+  />
 </template>
 
 <script>
