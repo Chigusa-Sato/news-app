@@ -1,11 +1,17 @@
 <template>
   <div>
     <base-input
-      :placeholder="placeholder"
+      placeholder="検索ワードを入力"
       :value="modelValue"
+      :rounded="false"
       @input="handleInput"
     />
-    <base-button :label="label" :color="color" @click-event="handleClick" />
+    <base-button
+      label="検索"
+      :color="color"
+      :rounded="false"
+      @click-event="handleClick"
+    />
   </div>
 </template>
 
@@ -17,22 +23,12 @@ import BaseButton from '../atoms/BaseButton.vue';
 export default defineComponent({
   components: { BaseInput, BaseButton },
   props: {
-    placeholder: {
-      type: String,
-      required: false,
-      default: '',
-    },
     modelValue: {
       type: String,
       required: false,
       default: '',
     },
     color: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    label: {
       type: String,
       required: false,
       default: '',

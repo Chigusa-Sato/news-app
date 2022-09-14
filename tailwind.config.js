@@ -6,7 +6,11 @@ module.exports = {
   ],
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        128: '32rem',
+      },
+    },
   },
   plugins: [],
 };

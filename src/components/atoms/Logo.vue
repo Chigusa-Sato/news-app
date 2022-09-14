@@ -1,18 +1,11 @@
 <template>
-  <p class="text-xl font-bold text-white">{{ text }}</p>
+  <img src="../../assets/logo.png" alt="" class="w-14 h-14 mr-10" />
 </template>
 
 <script>
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  props: {
-    text: {
-      required: true,
-      type: String,
-      default: '',
-    },
-  },
   setup() {
     //ルーティング周り
   },

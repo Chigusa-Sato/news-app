@@ -1,7 +1,7 @@
 <template>
   <button
-    class="text-white px-4 py-2 rounded-lg shadow-lg"
-    :class="buttonColor"
+    class="text-white px-4 py-2 shadow-lg"
+    :class="[buttonColor, rounded]"
     @click="handleClick"
   >
     {{ label }}
@@ -23,6 +23,11 @@ export default defineComponent({
       required: false,
       default: '',
     },
+    rounded: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   setup(props, { emit }) {
     props = reactive(props);
@@ -37,6 +42,14 @@ export default defineComponent({
         return 'bg-red-300';
       }
     });
+
+    const rounded = computed(() => {
+      if (props.rounded) {
+        return 'rounded-lg';
+      } else {
+        return '';
+      }
+    });
     //TODO:storybookで背景色をカスタムする
     // const style = computed(() => {
     //   return 'backgroundColor:' + props.color;
@@ -45,7 +58,7 @@ export default defineComponent({
       emit('clickEvent');
     };
 
-    return { buttonColor, handleClick };
+    return { buttonColor, rounded, handleClick };
   },
 });
 </script>

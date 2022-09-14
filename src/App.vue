@@ -16,7 +16,7 @@ import {
   watchEffect,
   onMounted,
 } from 'vue';
-import TopNavbar from './components/TopNavbar.vue';
+import TopNavbar from './components/organisms/TopNavbar.vue';
 import Footer from './components/Footer.vue';
 
 export default defineComponent({

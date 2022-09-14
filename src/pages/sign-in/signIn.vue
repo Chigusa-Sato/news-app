@@ -4,7 +4,7 @@
 <style></style>
 
 <script>
-import TopNavbar from '../../components/TopNavbar.vue';
+import TopNavbar from '../../components/organisms/TopNavbar.vue';
 
 export default {
   components: {

@@ -12,6 +12,9 @@ export default {
     modelValue: {
       control: { String },
     },
+    rounded: {
+      control: { Boolean },
+    },
     // type: {
     //   control: { type: 'select' },
     //   options: ['text', 'date', 'radio'],
@@ -30,10 +33,12 @@ const Template = (args) => ({
 export const Default = Template.bind({});
 Default.args = {
   placeholder: '入力してください',
-  modelValue: 'りんご',
+  rounded: true,
   // type: 'text',
 };
-// export const Search = () => ({
-//   components: { BaseInput },
-//   template: '<base-input />',
-// });
+export const Search = Template.bind({});
+Search.args = {
+  placeholder: '検索ワードを入力してください',
+  rounded: false,
+  // type: 'text',
+};
