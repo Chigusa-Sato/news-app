@@ -5,14 +5,42 @@ export default {
   title: 'Button',
   //使用するコンポーネント
   component: BaseButton,
+  // //オプション設定
+  argTypes: {
+    label: {
+      control: { String },
+    },
+  },
 };
 
-export const Primary = () => ({
+const Template = (args) => ({
   components: { BaseButton },
-  template: '<base-button />',
+  setup() {
+    return { args };
+  },
+  template: '<BaseButton v-bind="args" />',
 });
 
-export const Secondary = () => ({
-  components: { BaseButton },
-  template: '<base-button />',
-});
+//bindを呼び出しstoryを作成
+export const Primary = Template.bind({});
+//Primaryボタンのpropsを設定
+Primary.args = {
+  label: 'Primary',
+  color: 'blue',
+};
+
+// //bindを呼び出しstoryを作成
+// export const Secondary = Template.bind({});
+// //Secondaryボタンのpropsを設定
+// Secondary.args = {
+//   label: 'Secondary',
+//   color: 'light-blue',
+// };
+
+//bindを呼び出しstoryを作成
+export const Secondary = Template.bind({});
+//Secondaryボタンのpropsを設定
+Secondary.args = {
+  label: 'Secondary',
+  color: 'gray',
+};

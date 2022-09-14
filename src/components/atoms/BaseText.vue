@@ -1,6 +1,5 @@
 <template>
-  <p class="bg-orange-500 text-red-200">ボタンだよ</p>
-  <!-- <button class="btn_red">ボタンだよ</button> -->
+  <p class="bg-orange-500 text-red-200">テキストだよ</p>
 </template>
 
 <script>

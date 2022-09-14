@@ -2,17 +2,15 @@
   <div class="container">
     <div class="flex justify-center">
       <div class="flex m-4">
-        <input
-          type="text"
-          class="rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
+        <search-form
+          placeholder="検索ワードを入力して下さい"
           v-model="keyword"
+          value="keyword"
+          color="gray"
+          label="検索"
+          @inputEvent="inputValue"
+          @click-event="search_news"
         />
-        <button
-          class="px-4 rounded-r-lg bg-gray-400 text-gray-800 font-bold p-2 uppercase border-gray-500 border-t border-b border-r"
-          @click="search_news"
-        >
-          Search
-        </button>
       </div>
     </div>
     <div class="flex flex-wrap items-center justify-center">
@@ -21,18 +19,16 @@
           <img :src="topic.urlToImage" />
           <a class="block font-bold" :href="topic.url">{{ topic.title }}</a>
           <p>{{ topic.author }}</p>
-          <button
-            class="bg-blue-300 py-1 px-3 mr-1 rounded"
-            @click="addFavorite(topic)"
-          >
-            後で読む
-          </button>
-          <button
-            class="bg-blue-400 py-1 px-3 ml-1 rounded"
-            @click="goToCommentPage(topic.id)"
-          >
-            コメント
-          </button>
+          <base-button
+            color="blue"
+            label="後で読む"
+            @click-event="addFavorite(topic)"
+          />
+          <base-button
+            color="light-blue"
+            label="コメント"
+            @click-event="goToCommentPage(topic.id)"
+          />
         </div>
       </div>
     </div>
@@ -50,8 +46,15 @@ import { computed, defineComponent, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useNews } from '../stores/news';
 import { useFavorite } from '../stores/favorite';
-
+import BaseButton from '../components/atoms/BaseButton.vue';
+import BaseInput from '../components/atoms/BaseInput.vue';
+import SearchForm from '../components/morecules/SearchForm.vue';
 export default defineComponent({
+  components: {
+    BaseButton,
+    BaseInput,
+    SearchForm,
+  },
   setup() {
     //ルーティング周り
     const router = useRouter();
@@ -78,7 +81,18 @@ export default defineComponent({
       newsStore.searchNews(keyword.value);
     };
 
-    return { goToCommentPage, news, addFavorite, search_news, keyword };
+    const inputValue = (value) => {
+      keyword.value = value;
+    };
+
+    return {
+      goToCommentPage,
+      news,
+      addFavorite,
+      search_news,
+      keyword,
+      inputValue,
+    };
   },
 });
 </script>
