@@ -1,8 +1,7 @@
 import SearchForm from '../components/morecules/SearchForm.vue';
-
 export default {
   //グループ名
-  title: 'Form',
+  title: 'morecules/Form',
   //使用するコンポーネント
   component: SearchForm,
   // //オプション設定

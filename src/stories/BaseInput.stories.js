@@ -2,7 +2,7 @@ import BaseInput from '../components/atoms/BaseInput.vue';
 
 export default {
   //グループ名
-  title: 'Input',
+  title: 'atoms/Input',
   //使用するコンポーネント
   component: BaseInput,
   argTyeps: {

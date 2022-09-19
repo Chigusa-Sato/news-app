@@ -2,13 +2,17 @@ import BaseButton from '../components/atoms/BaseButton.vue';
 
 export default {
   //グループ名
-  title: 'Button',
+  title: 'atoms/Button',
   //使用するコンポーネント
   component: BaseButton,
   // //オプション設定
   argTypes: {
     label: {
       control: { String },
+    },
+    color: {
+      control: 'select',
+      options: ['blue', 'light-blue', 'gray', 'red'],
     },
   },
 };

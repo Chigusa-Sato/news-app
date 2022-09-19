@@ -46,15 +46,12 @@ export default defineComponent({
   setup(props, { emit }) {
     const path = computed(() => {
       const route = useRoute();
-      return route.path;
+      if (route) {
+        return route.path;
+      } else {
+        return '/';
+      }
     });
-    // const formatDate = computed(() => (date) => {
-    //   let today = 'Y/M/D';
-    //   today = today.replace(/Y/g, date.slice(0, 4));
-    //   today = today.replace(/M/g, date.slice(5, 7));
-    //   today = today.replace(/D/g, date.slice(8, 10));
-    //   return today;
-    // });
     const handleClick = (eventName) => {
       emit(eventName);
     };
