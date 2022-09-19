@@ -1,18 +1,25 @@
-import BaseText from '../components/atoms/BaseText.vue';
+import BaseText from '../components/atoms/Text.vue';
 
 export default {
-  //グループ名
   title: 'Text',
-  //使用するコンポーネント
   component: BaseText,
+  argTypes: {
+    text: {
+      control: { String },
+    },
+  },
 };
 
-export const Default = () => ({
+const Template = (args) => ({
   components: { BaseText },
-  template: '<base-text/>',
+  setup() {
+    return { args };
+  },
+  template: '<BaseText v-bind="args" />',
 });
 
-export const Error = () => ({
-  components: { BaseText },
-  template: '<base-text/>',
-});
+export const Default = Template.bind({});
+//Defaultボタンのpropsを設定
+Default.args = {
+  text: 'BaseText',
+};

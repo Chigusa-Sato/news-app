@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-200 shadow-sm w-96 h-128 p-5">
-    <CardInfo :cardContent="content" />
-    <div class="flex justify-center gap-2">
+    <CardInfo :cardContent="content" class="h-4/5" />
+    <div class="flex justify-center gap-2 class='h-1/5'">
       <base-button
         color="blue"
         label="後で読む"

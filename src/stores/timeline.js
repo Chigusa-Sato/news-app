@@ -5,7 +5,7 @@ export const useTimeline = defineStore('timeline-store', {
     return {
       timeline: [
         {
-          comment: 'めいちゃん可愛い！ドラマ見てみようかなー',
+          comment: 'コメントコメントコメント',
           article: {
             author: null,
             content: null,
