@@ -14,7 +14,7 @@ export const useNews = defineStore('news-store', {
     return {
       News: [],
       fetching: false,
-      category: 'technology',
+      category: 'general',
     };
   },
 
@@ -54,23 +54,20 @@ export const useNews = defineStore('news-store', {
       const newsDetail = this.News.find((topic) => topic.id === topicId);
       return newsDetail;
     },
-    async searchNews(keyword) {
+    async searchNews(keyword, category) {
       const APIKEY = import.meta.env.VITE_APP_API_KEY;
       this.fetching = true;
+      const url =
+        keyword === ''
+          ? `https://newsapi.org/v2/top-headlines?country=jp&category=category&apiKey=${APIKEY}`
+          : `https://newsapi.org/v2/top-headlines?country=jp&q=${keyword}&apiKey=${APIKEY}`;
       try {
-        const res = await axios.get(
-          'https://newsapi.org/v2/top-headlines?country=jp' +
-            `&q=${keyword}` +
-            `&apiKey=${APIKEY}`
-        );
-
+        console.log(url);
+        const res = await axios.get(url);
         const articles = res.data.articles.map((articles) => {
           articles.urlToImage === undefined ? '' : articles.urlToImage;
           return { ...articles, id: getUniqueStr() };
         });
-
-        console.log('結果', articles);
-
         this.News = articles;
       } catch (err) {
         this.News = [];

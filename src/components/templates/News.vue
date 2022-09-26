@@ -7,6 +7,10 @@
           v-model="keyword"
           value="keyword"
           color="gray"
+          :category="category"
+          name="category"
+          :options="options"
+          @updateSelect="updateCategory"
           @inputEvent="inputValue"
           @click-event="search_news"
         />
@@ -31,7 +35,7 @@
 </template>
 
 <script>
-import { computed, defineComponent, ref } from 'vue';
+import { computed, defineComponent, ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { useNews } from '../../stores/news';
 import { useFavorite } from '../../stores/favorite';
@@ -68,9 +72,27 @@ export default defineComponent({
     };
 
     //検索
+    //-カテゴリ
+    const options = reactive([
+      'general',
+      'business',
+      'entertainment',
+      'health',
+      'science',
+      'sports',
+      'technology',
+    ]);
+
+    let category = ref('general');
+
+    const updateCategory = (val) => {
+      category.value = val;
+    };
+
+    //-キーワード
     let keyword = ref('');
     let search_news = () => {
-      newsStore.searchNews(keyword.value);
+      newsStore.searchNews(keyword.value, category.value);
     };
     const inputValue = (value) => {
       keyword.value = value;
@@ -82,6 +104,9 @@ export default defineComponent({
       search_news,
       keyword,
       inputValue,
+      updateCategory,
+      options,
+      category,
     };
   },
 });

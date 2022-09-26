@@ -1,4 +1,11 @@
 <template>
+  <base-select
+    :options="options"
+    :name="name"
+    @updateValue="updateSelect"
+    :value="category"
+    class="mr-2"
+  />
   <base-input
     placeholder="検索ワードを入力"
     :value="modelValue"
@@ -14,12 +21,13 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref, reactive } from 'vue';
+import BaseSelect from '../atoms/BaseSelect.vue';
 import BaseInput from '../atoms/BaseInput.vue';
 import BaseButton from '../atoms/BaseButton.vue';
 
 export default defineComponent({
-  components: { BaseInput, BaseButton },
+  components: { BaseSelect, BaseInput, BaseButton },
   props: {
     modelValue: {
       type: String,
@@ -31,8 +39,26 @@ export default defineComponent({
       required: false,
       default: '',
     },
+    options: {
+      type: Array,
+      required: false,
+      default: '',
+    },
+    name: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    category: {
+      type: String,
+      required: false,
+      default: 'general',
+    },
   },
   setup(props, { emit }) {
+    const updateSelect = (value) => {
+      emit('updateSelect', value);
+    };
     const handleClick = () => {
       emit('clickEvent');
     };
@@ -40,8 +66,7 @@ export default defineComponent({
     const handleInput = (e) => {
       emit('inputEvent', e.target.value);
     };
-
-    return { handleClick, handleInput };
+    return { handleClick, handleInput, updateSelect };
   },
 });
 </script>

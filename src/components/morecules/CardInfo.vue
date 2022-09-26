@@ -2,7 +2,7 @@
   <div>
     <Badge :text="formatDate(cardContent.publishedAt)" />
     <img :src="cardContent.urlToImage" class="my-1" />
-    <a class="block font-bold" :href="cardContent.url">{{
+    <a class="block font-bold text-left" :href="cardContent.url">{{
       cardContent.title
     }}</a>
     <Text :text="cardContent.author" />
