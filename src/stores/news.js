@@ -59,8 +59,8 @@ export const useNews = defineStore('news-store', {
       this.fetching = true;
       const url =
         keyword === ''
-          ? `https://newsapi.org/v2/top-headlines?country=jp&category=category&apiKey=${APIKEY}`
-          : `https://newsapi.org/v2/top-headlines?country=jp&q=${keyword}&apiKey=${APIKEY}`;
+          ? `https://newsapi.org/v2/top-headlines?country=jp&category=${category}&apiKey=${APIKEY}`
+          : `https://newsapi.org/v2/top-headlines?country=jp&category=${category}&q=${keyword}&apiKey=${APIKEY}`;
       try {
         console.log(url);
         const res = await axios.get(url);

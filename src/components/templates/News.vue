@@ -86,6 +86,7 @@ export default defineComponent({
     let category = ref('general');
 
     const updateCategory = (val) => {
+      console.log('uodateCate', val);
       category.value = val;
     };
 
@@ -93,6 +94,7 @@ export default defineComponent({
     let keyword = ref('');
     let search_news = () => {
       newsStore.searchNews(keyword.value, category.value);
+      console.log('searchCate', category.value);
     };
     const inputValue = (value) => {
       keyword.value = value;

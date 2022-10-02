@@ -49,6 +49,7 @@ export default defineComponent({
     const props_options = props.options;
 
     const updateValue = (e) => {
+      console.log('@baseSelect', e.target.value);
       emit('updateValue', e.target.value);
     };
     return { updateValue, props_options };
