@@ -4,12 +4,14 @@
       <Logo />
       <!-- <Title text="RakuNews" /> -->
     </div>
-    <router-link to="/" class="mx-1"><Title text="Home" /></router-link>
+    <router-link to="/" class="mx-1"
+      ><Title text="Home" :hover="true"
+    /></router-link>
     <router-link to="/favorite/" class="mx-1"
-      ><Title text="Favorite"
+      ><Title text="Favorite" :hover="true"
     /></router-link>
     <router-link to="/timeLine/" class="mx-1"
-      ><Title text="TimeLine"
+      ><Title text="TimeLine" :hover="true"
     /></router-link>
   </div>
 </template>

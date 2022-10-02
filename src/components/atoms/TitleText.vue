@@ -1,5 +1,5 @@
 <template>
-  <p class="text-xl font-bold" :class="textColor">{{ text }}</p>
+  <p class="text-xl font-bold w-fit" :class="[textColor, hover]">{{ text }}</p>
 </template>
 
 <script>
@@ -16,6 +16,10 @@ export default defineComponent({
       type: String,
       default: 'white',
     },
+    hover: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { emit }) {
     props = reactive(props);
@@ -26,7 +30,13 @@ export default defineComponent({
         return 'text-gray-900';
       }
     });
-    return { textColor };
+
+    const hover = computed(() => {
+      if (props.hover) {
+        return 'hover:border-b-2 transition-all ease-in-out border-solid border-b-white';
+      }
+    });
+    return { textColor, hover };
   },
 });
 </script>
