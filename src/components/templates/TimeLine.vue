@@ -9,19 +9,19 @@
         <!-- 記事情報 -->
         <Card :content="comment.article" class="h-80 w-1/2" />
         <!-- 記事の内容 -->
-        <div class="h-80 w-1/2 border-solid border-2 border-slate-700 p-3">
-          <TitleText text="description" color="black" />
+        <div class="h-80 w-1/2 p-3 flex flex-col items-center">
+          <!-- <TitleText text="description" color="black" /> -->
           <Text
             :text="comment.article.description"
             class="h-56bg-red-100 line_clamp"
           />
-
-          <!-- <BaseButton
-            color="blue"
-            label="続きを見る"
-            @click-event="handleClick('handleClick_favorite')"
-            class="w-28"
-          ></BaseButton> -->
+          <a
+            class="block font-bold text-left"
+            :href="comment.article.url"
+            target="_blank"
+          >
+            <BaseButton color="gray" label="続きを見る" class="w-28 mt-4" />
+          </a>
         </div>
         <!-- コメント -->
         <div
