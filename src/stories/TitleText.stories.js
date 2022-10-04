@@ -6,6 +6,10 @@ export default {
     text: {
       control: { String },
     },
+    color: {
+      control: 'select',
+      options: ['black', 'white'],
+    },
   },
 };
 const Template = (args) => ({

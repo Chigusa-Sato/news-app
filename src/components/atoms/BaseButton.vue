@@ -1,7 +1,7 @@
 <template>
   <button
     class="text-white px-4 py-2 shadow-lg"
-    :class="[buttonColor, rounded]"
+    :class="[buttonColor, rounded, hover]"
     @click="handleClick"
   >
     {{ label }}
@@ -28,6 +28,11 @@ export default defineComponent({
       required: false,
       default: true,
     },
+    hover: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   setup(props, { emit }) {
     props = reactive(props);
@@ -50,15 +55,18 @@ export default defineComponent({
         return '';
       }
     });
-    //TODO:storybookで背景色をカスタムする
-    // const style = computed(() => {
-    //   return 'backgroundColor:' + props.color;
-    // });
+
+    const hover = computed(() => {
+      if (props.hover) {
+        return 'hover:shadow-none';
+      }
+    });
+
     const handleClick = () => {
       emit('clickEvent');
     };
 
-    return { buttonColor, rounded, handleClick };
+    return { buttonColor, rounded, hover, handleClick };
   },
 });
 </script>

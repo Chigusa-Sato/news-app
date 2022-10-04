@@ -14,6 +14,9 @@ export default {
       control: 'select',
       options: ['blue', 'light-blue', 'gray', 'red'],
     },
+    hover: {
+      control: 'boolean',
+    },
   },
 };
 
@@ -31,6 +34,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   label: 'Primary',
   color: 'blue',
+  hover: true,
 };
 
 // //bindを呼び出しstoryを作成
