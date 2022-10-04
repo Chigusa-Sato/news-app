@@ -9,7 +9,7 @@
           color="gray"
           :category="category"
           name="category"
-          :options="options"
+          :select_options="options"
           @updateSelect="updateCategory"
           @inputEvent="inputValue"
           @click-event="search_news"

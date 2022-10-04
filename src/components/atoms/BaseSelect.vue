@@ -34,7 +34,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
-    options: {
+    select_options: {
       type: Array,
       required: false,
       default: '',
@@ -46,7 +46,7 @@ export default defineComponent({
     },
   },
   setup(props, { emit }) {
-    const props_options = props.options;
+    const props_options = props.select_options;
 
     const updateValue = (e) => {
       console.log('@baseSelect', e.target.value);

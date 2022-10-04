@@ -1,6 +1,6 @@
 <template>
   <base-select
-    :options="options"
+    :select_options="select_options"
     :name="name"
     @updateValue="updateSelect"
     :value="category"
@@ -39,7 +39,7 @@ export default defineComponent({
       required: false,
       default: '',
     },
-    options: {
+    select_options: {
       type: Array,
       required: false,
       default: '',

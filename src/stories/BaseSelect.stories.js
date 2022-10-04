@@ -6,9 +6,9 @@ export default {
   //使用するコンポーネント
   component: BaseSelect,
   argTyeps: {
-    options: {
+    select_options: {
       control: 'select',
-      options: ['A', 'B', 'C'],
+      options: ['apple', 'banana', 'grape'],
     },
   },
 };
@@ -23,5 +23,5 @@ const Template = (args) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  options: 'A',
+  select_options: 'A',
 };

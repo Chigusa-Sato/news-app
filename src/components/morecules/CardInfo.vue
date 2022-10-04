@@ -1,12 +1,15 @@
 <template>
-  <div>
+  <div class="w-96">
     <Badge :text="formatDate(cardContent.publishedAt)" />
-    <img
-      class="my-1"
-      v-if="cardContent.urlToImage !== null"
-      :src="cardContent.urlToImage"
-    />
-    <img class="my-1 h-60 w-96" v-else src="../../assets/no_photo.png" alt="" />
+    <div
+      class="h-60 w-80 overflow-hidden flex justify-center align-center w-full"
+    >
+      <img
+        v-if="cardContent.urlToImage !== null"
+        :src="cardContent.urlToImage"
+      />
+      <img v-else src="../../assets/no_photo.png" alt="" />
+    </div>
     <a class="block font-bold text-left" :href="cardContent.url">{{
       cardContent.title
     }}</a>
