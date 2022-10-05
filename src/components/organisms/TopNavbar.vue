@@ -1,8 +1,7 @@
 <template>
   <div class="bg-slate-700 h-24 flex items-center p-2">
     <div>
-      <Logo />
-      <!-- <Title text="RakuNews" /> -->
+      <router-link to="/" class="mx-1"><Logo /></router-link>
     </div>
     <router-link to="/" class="mx-1"
       ><Title text="Home" :hover="true"
