@@ -1,5 +1,6 @@
 <template>
   <div class="w-96">
+    <FavoriteIcon class="relative left-72 top-9" />
     <Badge :text="formatDate(cardContent.publishedAt)" />
     <div
       class="h-60 w-80 overflow-hidden flex justify-center align-center w-full"
@@ -21,8 +22,9 @@
 import { defineComponent, computed } from 'vue';
 import Text from '../atoms/Text.vue';
 import Badge from '../atoms/Badge.vue';
+import FavoriteIcon from '../atoms/FavoriteIcon.vue';
 export default defineComponent({
-  components: { Text, Badge },
+  components: { Text, Badge, FavoriteIcon },
   props: {
     cardContent: {
       type: Object,
