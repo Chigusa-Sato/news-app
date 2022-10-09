@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-gray-200 shadow-sm w-96 h-128 p-4">
+  <div
+    class="bg-gray-200 shadow-sm w-96 h-128 p-4 flex flex-col justify-between"
+  >
     <CardInfo :cardContent="content" class="h-4/5" />
     <div class="flex justify-center gap-2">
       <base-button

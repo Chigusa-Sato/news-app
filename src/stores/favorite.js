@@ -24,7 +24,13 @@ export const useFavorite = defineStore('favorite-store', {
 
   actions: {
     addToFavorite(topic) {
-      this.favorites.push(topic);
+      //重複した記事は追加しない
+      const isDupicated = this.favorites.some(
+        (favorite) => favorite.id === topic.id
+      );
+      if (!isDupicated) {
+        this.favorites.push(topic);
+      }
     },
     removeFromFavorite(id) {
       console.log(id);

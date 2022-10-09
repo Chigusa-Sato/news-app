@@ -8,7 +8,9 @@ function getUniqueStr(myStrong) {
     Math.floor(strong * Math.random()).toString(16)
   );
 }
-
+function isFavorite(articleId) {
+  console.log(articleId);
+}
 export const useNews = defineStore('news-store', {
   state: () => {
     return {
@@ -37,9 +39,12 @@ export const useNews = defineStore('news-store', {
             this.category +
             `&apiKey=${APIKEY}`
         );
-        const articles = res.data.articles.map((articles) => {
-          articles.urlToImage === undefined ? '' : articles.urlToImage;
-          return { ...articles, id: getUniqueStr() };
+        const articles = res.data.articles.map((article) => {
+          article.urlToImage === undefined ? '' : article.urlToImage;
+          return {
+            ...article,
+            id: getUniqueStr(),
+          };
         });
 
         this.News = articles;
@@ -64,9 +69,12 @@ export const useNews = defineStore('news-store', {
       try {
         console.log(url);
         const res = await axios.get(url);
-        const articles = res.data.articles.map((articles) => {
-          articles.urlToImage === undefined ? '' : articles.urlToImage;
-          return { ...articles, id: getUniqueStr() };
+        const articles = res.data.articles.map((article) => {
+          article.urlToImage === undefined ? '' : article.urlToImage;
+          return {
+            ...article,
+            id: getUniqueStr(),
+          };
         });
         this.News = articles;
       } catch (err) {

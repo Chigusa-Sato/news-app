@@ -7,10 +7,10 @@ import App from './App.vue';
 import './index.css';
 import 'tailwindcss/tailwind.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faHeart);
+library.add(faPaperclip);
 
 const store = createPinia();
 const router = createRouter(createWebHistory());

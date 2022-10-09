@@ -1,19 +1,39 @@
 <template>
-  <div class="w-96">
-    <FavoriteIcon class="relative left-72 top-9" />
+  <div class="flex flex-col">
+    <!-- 「後で読む」対象の記事に対してクリップを表示 -->
+    <!-- <FavoriteIcon class="relative left-72 top-12" /> -->
     <Badge :text="formatDate(cardContent.publishedAt)" />
     <div
-      class="h-60 w-80 overflow-hidden flex justify-center align-center w-full"
+      class="
+        bg-white
+        py-4
+        overflow-hidden
+        flex
+        justify-center
+        align-center
+        w-full
+      "
     >
       <img
         v-if="cardContent.urlToImage !== null"
         :src="cardContent.urlToImage"
+        class="max-h-60 max-w-xs object-cover"
       />
       <img v-else src="../../assets/no_photo.png" alt="" />
     </div>
-    <a class="block font-bold text-left" :href="cardContent.url">{{
-      cardContent.title
-    }}</a>
+    <a
+      class="
+        block
+        font-bold
+        max-w-xs
+        pt-3
+        text-left
+        overflow-hidden
+        line-clamp-3
+      "
+      :href="cardContent.url"
+      >{{ cardContent.title }}</a
+    >
     <Text :text="cardContent.author" />
   </div>
 </template>

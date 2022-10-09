@@ -1,16 +1,16 @@
 <template>
   <div
     class="
-      w-9
-      h-9
+      w-12
+      h-12
       bg-white
       rounded-full
-      border-solid border-slate-600 border-2
+      border-solid border-gray-400 border-2
       flex
       items-center
       justify-center
     "
   >
-    <fa icon="heart" class="text-red-700 text-2xl" />
+    <fa icon="paperclip" class="text-stale-700 text-3xl" />
   </div>
 </template>
