@@ -1,7 +1,10 @@
 <template>
   <div class="flex flex-col">
     <!-- 「後で読む」対象の記事に対してクリップを表示 -->
-    <!-- <FavoriteIcon class="relative left-72 top-12" /> -->
+    <FavoriteIcon
+      class="relative left-72 top-12"
+      v-show="cardContent.needsClip"
+    />
     <Badge :text="formatDate(cardContent.publishedAt)" />
     <div
       class="
@@ -49,6 +52,10 @@ export default defineComponent({
     cardContent: {
       type: Object,
       default: {},
+    },
+    isTopPage: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props, { emit }) {
