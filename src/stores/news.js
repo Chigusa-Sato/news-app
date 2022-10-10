@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia';
+
 import axios from 'axios';
+
 function getUniqueStr(myStrong) {
   let strong = 1000;
   if (myStrong) strong = myStrong;
@@ -7,9 +9,6 @@ function getUniqueStr(myStrong) {
     new Date().getTime().toString(16) +
     Math.floor(strong * Math.random()).toString(16)
   );
-}
-function isFavorite(articleId) {
-  console.log(articleId);
 }
 export const useNews = defineStore('news-store', {
   state: () => {

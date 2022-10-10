@@ -6,16 +6,13 @@
     >
       <div class="bg-white w-1/2 overflow-hidden p-4">
         <img :src="newsDetail.urlToImage" />
-        <a class="block font-bold" :href="newsDetail.url">{{
-          newsDetail.title
-        }}</a>
-        <p>{{ newsDetail.description }}</p>
+        <a class="block font-bold">{{ newsDetail.title }}</a>
         <p>{{ newsDetail.author }}</p>
       </div>
       <div class="w-1/2 flex flex-col justify-center items-end">
         <input
           type="text"
-          class="w-full h-full border-2 border-blue-300 rounded mb-2"
+          class="w-full h-full border-2 border-slate-500 rounded mb-2"
           placeholder="please write here"
           v-model="comments"
         />

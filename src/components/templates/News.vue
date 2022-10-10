@@ -53,23 +53,39 @@ export default defineComponent({
     TextError,
   },
   setup() {
+    //storeモジュール定義
+    const newsStore = useNews();
+    const favoriteStore = useFavorite();
+    const news = computed(() => newsStore.News);
+
     //ルーティング周り
     const router = useRouter();
     const goToCommentPage = (id) => {
       router.push({ name: 'comments', params: { topicId: id } });
     };
 
-    //ニュース情報の取得
-    //createdはsetup関数内に記載
-    const newsStore = useNews();
-    const news = computed(() => newsStore.News);
-    newsStore.fetchNews();
-
     //お気に入り追加
-    const favoriteStore = useFavorite();
     const addFavorite = (topic) => {
       favoriteStore.addToFavorite(topic);
     };
+    //クリップアイコン表示
+    const addClipIcon = (argNews) => {
+      const favorites = favoriteStore.favorites;
+      console.log(favorites[0], argNews.value);
+
+      const joinedNewsArray = [...favorites, ...argNews.value];
+      const duplicatedNewsArray = joinedNewsArray.filter(
+        (item) => favorites.includes(item.id) && argNews.value.includes(item.id)
+      );
+    };
+    //ニュース情報の取得
+    //createdはsetup関数内に記載
+    new Promise((resolve) => {
+      newsStore.fetchNews();
+      resolve();
+    }).then(() => {
+      addClipIcon(news);
+    });
 
     //検索
     //-カテゴリ
@@ -84,17 +100,16 @@ export default defineComponent({
     ]);
 
     let category = ref('general');
-
     const updateCategory = (val) => {
-      console.log('uodateCate', val);
       category.value = val;
     };
 
     //-キーワード
     let keyword = ref('');
-    let search_news = () => {
+    const search_news = () => {
       newsStore.searchNews(keyword.value, category.value);
       console.log('searchCate', category.value);
+      addClipIcon(news);
     };
     const inputValue = (value) => {
       keyword.value = value;
@@ -109,6 +124,7 @@ export default defineComponent({
       updateCategory,
       options,
       category,
+      addClipIcon,
     };
   },
 });

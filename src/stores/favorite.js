@@ -17,6 +17,20 @@ export const useFavorite = defineStore('favorite-store', {
           url: 'https://www.youtube.com/watch?v=FpvJfVS3W6o',
           urlToImage: 'https://i.ytimg.com/vi/FpvJfVS3W6o/maxresdefault.jpg',
         },
+        {
+          author: '読売新聞オンライン',
+          content: '',
+          description:
+            '【キーウ＝川上大介】８日の爆発で一部崩落が起きたロシア本土とウクライナ南部クリミア半島を結ぶ「クリミア大橋」（全長約１９キロ・メートル）について、タス通信は、８日夕に車両と列車の通行が限定的に再開したと伝えた。英国防省',
+          id: '183bdbdf74b1e5',
+          publishedAt: '2022-10-09T11:19:00Z',
+          source: { id: null, name: 'Yomiuri.co.jp' },
+          title:
+            '１９ｋｍのクリミア大橋崩落、ウクライナ情報機関が関与の報道…ゼレンスキー氏「未来は快晴」 - 読売新聞オンライン',
+          url: 'https://www.yomiuri.co.jp/world/20221009-OYT1T50150/',
+          urlToImage:
+            'https://www.yomiuri.co.jp/media/2022/10/20221009-OYT1I50090-T.jpg?type=ogp',
+        },
       ],
     };
   },
@@ -24,6 +38,7 @@ export const useFavorite = defineStore('favorite-store', {
 
   actions: {
     addToFavorite(topic) {
+      console.log(topic.id);
       //重複した記事は追加しない
       const isDupicated = this.favorites.some(
         (favorite) => favorite.id === topic.id
