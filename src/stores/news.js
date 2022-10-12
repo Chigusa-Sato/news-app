@@ -43,7 +43,6 @@ export const useNews = defineStore('news-store', {
           return {
             ...article,
             id: getUniqueStr(),
-            needsClip: false,
           };
         });
 
@@ -74,7 +73,6 @@ export const useNews = defineStore('news-store', {
           return {
             ...article,
             id: getUniqueStr(),
-            needsClip: false,
           };
         });
         this.News = articles;

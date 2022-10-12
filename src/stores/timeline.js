@@ -7,17 +7,19 @@ export const useTimeline = defineStore('timeline-store', {
         {
           comment: 'コメントコメントコメント',
           article: {
-            author: null,
-            content: null,
+            author: 'スポニチ Sponichi Annex',
+            content: '',
             description:
-              '7月スタートの火曜ドラマ『ユニコーンに乗って』の主演に永野芽郁が決定!!永野自身も好きなドラマ枠での出演が決定した喜びを語る!!さらに、本作で初挑戦となるCEO役のための準備していることとは!?魅力満載のスペシャルインタビュー!!■番組概要７月期の火曜ドラマは、大北はるかが脚本を手掛ける完全オリジナルストーリー『...',
+              '56号を記録した村上について「まだ5年目の選手ですよね。いやーもう素晴らしいですね」と称賛した。さらに令和初の3冠王に輝いたことについても「今までになかったスケ… - スポーツニッポン新聞社の公式サイト',
             id: '180d224c5af31',
             publishedAt: '2022-05-17T08:00:04Z',
             source: { id: null, name: 'YouTube' },
             title:
-              '【新火曜ドラマ】永野芽郁 初のCEO役に挑戦!! スペシャルインタビュー!!『ユニコーンに乗って』【TBS】 - TBS公式 YouTuboo',
-            url: 'https://www.youtube.com/watch?v=FpvJfVS3W6o',
-            urlToImage: 'https://i.ytimg.com/vi/FpvJfVS3W6o/maxresdefault.jpg',
+              '松井秀喜氏がヤクルト・村上を称賛「今までになかったスケールの選手」 打撃フォームも独自分析 - スポニチアネックス Sponichi Annex',
+            url: 'https://www.sponichi.co.jp/baseball/news/2022/10/12/kiji/20221012s00001173477000c.html',
+            urlToImage:
+              'https://www.sponichi.co.jp/baseball/news/2022/10/12/jpeg/20221012s00001173484000p_view.jpg',
+            needsClip: true,
           },
         },
         {
@@ -35,6 +37,7 @@ export const useTimeline = defineStore('timeline-store', {
             url: 'https://www.yomiuri.co.jp/world/20221009-OYT1T50150/',
             urlToImage:
               'https://www.yomiuri.co.jp/media/2022/10/20221009-OYT1I50090-T.jpg?type=ogp',
+            needsClip: true,
           },
         },
       ],

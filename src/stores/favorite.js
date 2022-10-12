@@ -16,6 +16,7 @@ export const useFavorite = defineStore('favorite-store', {
             '【新火曜ドラマ】永野芽郁 初のCEO役に挑戦!! スペシャルインタビュー!!『ユニコーンに乗って』【TBS】 - TBS公式 YouTuboo',
           url: 'https://www.youtube.com/watch?v=FpvJfVS3W6o',
           urlToImage: 'https://i.ytimg.com/vi/FpvJfVS3W6o/maxresdefault.jpg',
+          needsClip: true,
         },
         {
           author: '読売新聞オンライン',
@@ -30,6 +31,7 @@ export const useFavorite = defineStore('favorite-store', {
           url: 'https://www.yomiuri.co.jp/world/20221009-OYT1T50150/',
           urlToImage:
             'https://www.yomiuri.co.jp/media/2022/10/20221009-OYT1I50090-T.jpg?type=ogp',
+          needsClip: true,
         },
       ],
     };
@@ -38,7 +40,7 @@ export const useFavorite = defineStore('favorite-store', {
 
   actions: {
     addToFavorite(topic) {
-      console.log(topic.id);
+      console.log(topic.description);
       //重複した記事は追加しない
       const isDupicated = this.favorites.some(
         (favorite) => favorite.id === topic.id
