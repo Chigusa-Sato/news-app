@@ -1,6 +1,6 @@
 import { createRouter } from 'vue-router';
 import News from './pages/NewsPage.vue';
-import FavoriteTopic from './pages/favoritePage.vue';
+import FavoriteTopic from './pages/FavoritePage.vue';
 import TimeLine from './pages/TimeLinePage.vue';
 import Comments from './pages/CommentPage.vue';
 
