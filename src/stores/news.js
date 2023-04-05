@@ -85,3 +85,5 @@ export const useNews = defineStore('news-store', {
     },
   },
 });
+// test用
+
